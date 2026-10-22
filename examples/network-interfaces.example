@@ -1,0 +1,27 @@
+# /etc/network/interfaces – Proxmox-Host mit zwei Bridges
+# Alle Werte sind Platzhalter.
+
+auto lo
+iface lo inet loopback
+
+iface <NIC0> inet manual
+
+# vmbr0: Heimnetz / Management
+auto vmbr0
+iface vmbr0 inet static
+	address 192.168.X.X/24
+	gateway 192.168.X.X
+	bridge-ports <NIC0>
+	bridge-stp off
+	bridge-fd 0
+
+# vmbr1: internes Segment hinter der Firewall, VLAN-aware
+auto vmbr1
+iface vmbr1 inet manual
+	bridge-ports <USB-NIC>
+	bridge-vlan-aware yes
+	bridge-vids <VLAN-IDS>
+	bridge-stp off
+	bridge-fd 0
+
+source /etc/network/interfaces.d/*
