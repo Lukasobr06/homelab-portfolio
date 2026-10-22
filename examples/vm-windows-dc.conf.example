@@ -1,0 +1,25 @@
+# /etc/pve/qemu-server/<ID>.conf – Windows Server als Domain Controller
+# Alle Werte sind Platzhalter.
+
+name: <HOSTNAME>
+ostype: win11
+machine: q35
+bios: ovmf
+# UEFI mit vorinstallierten Secure-Boot-Schlüsseln
+efidisk0: local-lvm:vm-<ID>-disk-0,efitype=4m,pre-enrolled-keys=1,size=4M
+# Virtuelles TPM
+tpmstate0: local-lvm:vm-<ID>-disk-2,size=4M,version=v2.0
+cpu: x86-64-v2-AES
+cores: 2
+sockets: 1
+memory: 4096
+scsihw: virtio-scsi-single
+scsi0: local-lvm:vm-<ID>-disk-1,iothread=1,size=60G
+# Installations-ISO und VirtIO-Treiber
+ide2: local:iso/<WINDOWS-SERVER-ISO>,media=cdrom
+ide0: local:iso/<VIRTIO-WIN-ISO>,media=cdrom
+boot: order=scsi0;ide2;ide0;net0
+net0: virtio=XX:XX:XX:XX:XX:XX,bridge=vmbr0,firewall=1
+# QEMU Guest Agent
+agent: 1
+onboot: 0

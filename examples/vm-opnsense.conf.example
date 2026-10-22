@@ -1,0 +1,19 @@
+# /etc/pve/qemu-server/<ID>.conf – OPNsense als Firewall
+# Alle Werte sind Platzhalter.
+
+name: <HOSTNAME>
+ostype: l26
+machine: q35
+bios: seabios
+cpu: host
+cores: 2
+memory: 4096
+scsihw: virtio-scsi-single
+scsi0: local-lvm:vm-<ID>-disk-0,discard=on,size=20G,ssd=1
+boot: order=scsi0
+# WAN: Heimnetz
+net0: virtio=XX:XX:XX:XX:XX:XX,bridge=vmbr0
+# LAN: VLAN-Trunk ins interne Segment
+net1: virtio=XX:XX:XX:XX:XX:XX,bridge=vmbr1,trunks=<VLAN-IDS>
+agent: 1
+onboot: 1
