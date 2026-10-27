@@ -16,6 +16,7 @@ Platzhalter, keine echten Werte.
 | AdGuard Home | DNS-Filter für das Heimnetz | LXC-Container |
 | UniFi Network Application | Verwaltung der UniFi-Access-Points | Docker in einem LXC-Container |
 | Windows Server | Domain Controller (Active Directory, DNS) | VM mit UEFI und TPM |
+| secwatch | Prüft BSI-Warnungen gegen meine Systeme, Updates per Freigabe | LXC-Container, Cloudflare Tunnel |
 
 ## Architektur
 
@@ -93,6 +94,14 @@ virtuelles TPM wie ein echter, aktueller Server.
   internen Docker-Netz, die Datenbank ist von außen nicht erreichbar.
 - **Dokumentation und Sicherung**: Configs versioniert ablegen, sensible Daten
   verschlüsselt halten und für die Öffentlichkeit nur bereinigte Beispiele zeigen.
+
+## secwatch: Sicherheitswarnungen automatisch abarbeiten
+
+Jeden Tag werden die Warnmeldungen des BSI mit dem Softwarestand aller Systeme
+abgeglichen. Ist etwas betroffen, kommt ein geprüfter Update-Plan per Mail, den ich
+vom Handy freigebe, ohne offenen Port, mit Snapshot und automatischem Rollback.
+
+➡️ [Ablauf und Sicherheitskonzept](secwatch/README.md)
 
 ## Beispiel-Configs
 
