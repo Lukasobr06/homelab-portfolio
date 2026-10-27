@@ -84,6 +84,7 @@ and commands.
   compromised.
 - **Report failures honestly:** A failed firmware upgrade was initially reported as
   successful. Since then only the version compare counts.
+- **An alerting tool is only as good as its inventory:** When a major PHP vulnerability hit in October 2026, secwatch stayed silent at first because PHP on the firewall wasn't tracked at all. I found it by checking manually. PHP is part of the inventory now, and the update then went through as a normal approved plan.
 - **Zero trust instead of port forwarding:** A tunnel with login in front is simpler
   and safer than a forwarded port plus VPN.
 - **systemd does a lot:** Timers, path units, sandboxing and encrypted credentials
