@@ -90,6 +90,7 @@ Grenze zwischen Daten und Befehlen zu testen.
   kompromittiert sein könnte.
 - **Fehler ehrlich melden:** Ein gescheitertes Firmware-Upgrade wurde anfangs als
   erfolgreich gemeldet. Seitdem zählt nur, was der Versionsvergleich sagt.
+- **Ein Meldetool ist nur so gut wie sein Inventar:** Bei einer großen PHP-Lücke im Oktober 2026 hat secwatch zuerst geschwiegen, weil PHP auf der Firewall gar nicht erfasst war. Gefunden habe ich es beim Nachprüfen von Hand. Seitdem gehört PHP zum Inventar, und das Update lief danach ganz normal als Plan mit Freigabe.
 - **Zero Trust statt Portfreigabe:** Ein Tunnel mit vorgeschalteter Anmeldung ist
   einfacher und sicherer als eine Portweiterleitung mit VPN.
 - **systemd kann viel:** Timer, Path-Units, Sandboxing und verschlüsselte
