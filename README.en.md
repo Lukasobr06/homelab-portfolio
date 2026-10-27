@@ -16,6 +16,7 @@ real values.
 | AdGuard Home | DNS filter for the home network | LXC container |
 | UniFi Network Application | Management of the UniFi access points | Docker inside an LXC container |
 | Windows Server | Domain controller (Active Directory, DNS) | VM with UEFI and TPM |
+| secwatch | Checks BSI advisories against my systems, updates on approval | LXC container, Cloudflare Tunnel |
 
 ## Architecture
 
@@ -91,6 +92,14 @@ uses UEFI, Secure Boot and a virtual TPM like a real, current server.
   own internal Docker network; the database is not reachable from outside.
 - **Documentation and backups**: keeping configs under version control, encrypting
   sensitive data and publishing only sanitized examples.
+
+## secwatch: handling security advisories automatically
+
+Every day the advisories of the German BSI are matched against the software running
+on all systems. If something is affected, a validated update plan arrives by mail and
+I approve it from my phone: no open port, snapshot first, automatic rollback.
+
+➡️ [Flow and security design](secwatch/README.en.md)
 
 ## Example configs
 
